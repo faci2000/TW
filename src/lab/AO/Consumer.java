@@ -22,8 +22,10 @@ public class Consumer implements Runnable{
     @Override
     public void run() {
         while(Global.OPERATIONS>0){
+
+//            System.out.println("OPERATIONS: "+Global.OPERATIONS);
             Future future =  proxy.consume(getAmountToConsume());
-            while (!future.isReady() && Global.OPERATIONS>0)                                // asynchroniczne oczekiwanie na wykonanie zleconego zadania
+            while (!future.isReady() )          // && Global.OPERATIONS>0                      // asynchroniczne oczekiwanie na wykonanie zleconego zadania
                 this.doSomeWork();                                  // konsument w czasie czekania wykonuje inne zadania, sprawdzając po
                                                                     // każdym zadaniu czy zadanie na zasobach współdzielonych zostało wykonane
         }

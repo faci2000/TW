@@ -52,6 +52,7 @@ public class ActiveObject {
     public void waitForWorkEnd(){
         for(Thread thread : producersConsumersList) {
             try {
+//                System.out.println("Waiting for thread: "+thread.getName());
                 thread.join();
             } catch (InterruptedException e) {
                 e.printStackTrace();

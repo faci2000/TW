@@ -9,7 +9,7 @@ public class Proxy {
         scheduler = new Scheduler();
         this.servant = servant;
         schedulerThread = new Thread(scheduler);
-        schedulerThread.setName("Scheduler");
+//        schedulerThread.setName("Scheduler");
         schedulerThread.start();
     }
 

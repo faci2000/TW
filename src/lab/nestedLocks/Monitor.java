@@ -106,12 +106,12 @@ class Producer implements Runnable {
 
             product.produce();
 
-            for(int i=0;i<10;i++){
-                try {
-                    Thread.sleep(Monitor.workingTime);
-                } catch (InterruptedException ignored) { }
-                Global.setExtraTasksDone(Global.getExtraTasksDone() + 1);
-            }
+//            for(int i=0;i<10;i++){
+//                try {
+//                    Thread.sleep(Monitor.workingTime);
+//                } catch (InterruptedException ignored) { }
+//                Global.setExtraTasksDone(Global.getExtraTasksDone() + 1);
+//            }
 
         }
         Global.CPUTIME += ManagementFactory.getThreadMXBean().getThreadCpuTime(Thread.currentThread().getId());
@@ -129,12 +129,12 @@ class Consumer implements Runnable {
 
             product.consume();
 
-            try {
-                Thread.sleep(Monitor.workingTime);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            Global.setExtraTasksDone(Global.getExtraTasksDone() + 1);
+//            try {
+//                Thread.sleep(Monitor.workingTime);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//            Global.setExtraTasksDone(Global.getExtraTasksDone() + 1);
         }
         Global.CPUTIME += ManagementFactory.getThreadMXBean().getThreadCpuTime(Thread.currentThread().getId());
     }

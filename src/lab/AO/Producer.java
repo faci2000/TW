@@ -21,8 +21,9 @@ public class Producer implements Runnable{
     @Override
     public void run() {
         while(Global.OPERATIONS>0){
+//            System.out.println("OPERATIONS: "+Global.OPERATIONS);
             Future future = proxy.produce(getAmountToProduce());
-            while (!future.isReady() && Global.OPERATIONS>0 )                            // asynchroniczne oczekiwanie na wykonanie zleconego zadania
+            while (!future.isReady()  )     //&& Global.OPERATIONS>0                       // asynchroniczne oczekiwanie na wykonanie zleconego zadania
                 this.doSomeWork();                              // producent w czasie czekania wykonuje inne zadania, sprawdzając po
                                                                 // każdym zadaniu czy zadanie na zasobach współdzielonych zostało wykonane
         }
@@ -34,6 +35,7 @@ public class Producer implements Runnable{
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+//        System.out.println("Waiting: "+Thread.currentThread().getName());
 //        Global.setExtraTasksDone(Global.getExtraTasksDone() + 1);
     }
 

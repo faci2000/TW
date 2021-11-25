@@ -14,18 +14,18 @@ public class Servant {
     }
 
     public void increaseUsage(int produced){
-//        try {
+        try {
 //            Thread.sleep(workTime);
-//        }catch (Exception ignored){}
+        }catch (Exception ignored){}
 
         setCurrentUsage(getCurrentUsage() + produced);
         Global.OPERATIONS--;
     }
 
     public void decreaseUsage(int consumed){
-//        try {
-////            Thread.sleep(workTime);
-//        }catch (Exception ignored){}
+        try {
+//            Thread.sleep(workTime);
+        }catch (Exception ignored){}
 
         setCurrentUsage(getCurrentUsage()-consumed);
         Global.OPERATIONS--;
